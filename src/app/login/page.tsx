@@ -249,18 +249,55 @@ export default function LoginPage() {
                             }}
                         />
 
+                        <Stack
+                            direction="row"
+                            justifyContent="space-between"
+                            alignItems="center"
+                            sx={{ mt: 2, mb: 1 }}
+                        >
+                            <Box />
+                            <Link href="/recover" style={{ textDecoration: "none" }}>
+                                <Typography
+                                    variant="body2"
+                                    color="primary"
+                                    sx={{ fontWeight: 500 }}
+                                >
+                                    Forgot password?
+                                </Typography>
+                            </Link>
+                        </Stack>
+
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
                             size="large"
                             disabled={isLoading}
-                            sx={{ mt: 4, mb: 2, py: 1.5, borderRadius: 3 }}
+                            sx={{ mt: 2, mb: 2, py: 1.5, borderRadius: 3 }}
                         >
                             {isLoading ? "Signing In..." : "Sign In to Terminal"}
                         </Button>
 
-                        <Grid container justifyContent="center" sx={{ mt: 2 }}>
+                        <Grid container justifyContent="space-between" sx={{ mt: 2 }}>
+                            <Typography variant="body2" color="text.secondary">
+                                Don&apos;t have an account?{" "}
+                            </Typography>
+
+                            <Link href="/register" style={{ textDecoration: "none" }}>
+                                <Typography
+                                    variant="body2"
+                                    color="primary"
+                                    sx={{
+                                        fontWeight: "bold",
+                                        cursor: "pointer",
+                                    }}
+                                >
+                                    Register
+                                </Typography>
+                            </Link>
+                        </Grid>
+
+                        <Grid container justifyContent="center" sx={{ mt: 4 }}>
                             <Typography variant="caption" color="text.secondary">
                                 Security Protocol v2.4 Active
                             </Typography>

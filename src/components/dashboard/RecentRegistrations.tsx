@@ -31,7 +31,13 @@ export default function RecentRegistrations() {
     const fetchUsers = async () => {
       try {
         const response = await axiosInstance.get("users");
-        const allUsers = response.data.getAllUsers || response.data.users || [];
+        const allUsers = response.data.getAllUsers || response.data.users || response.data;
+
+        // Ensure allUsers is an array before sorting
+        if (!Array.isArray(allUsers)) {
+          setUsers([]);
+          return;
+        }
         // Sort by created_at descending and take 5 most recent
         const sorted = [...allUsers] // Create a copy before sorting
           .sort(
