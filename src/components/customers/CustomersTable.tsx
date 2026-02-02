@@ -57,7 +57,7 @@ export default function CustomersTable() {
         } else if (response.data?.data && Array.isArray(response.data.data)) {
           allUsers = response.data.data;
         }
-        // Filter users (excluding super\_admin, dev, webmaster to keep it focused on external roles)
+        // Filter users (excluding admin, dev, webmaster to keep it focused on external roles)
         const relevantUsers = allUsers.filter(
           (u: User) => ["consumer", "warehouse", "stockist"].includes(u.role) || !u.role
         );
@@ -76,7 +76,7 @@ export default function CustomersTable() {
   const getRoleColor = (role: string) => {
     switch (role) {
       case "admin":
-      case "super_admin":
+      case "admin":
         return "error";
       case "webmaster":
         return "warning";
